@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
 import {
+  BoldIcon,
   LucideIcon,
   PrinterIcon,
   Redo2Icon,
@@ -69,6 +70,13 @@ export const Toolbar = () => {
             current === "false" ? "true" : "false"
           );
         },
+      },
+    ],
+    [
+      {
+        label: "Bold",
+        icon: BoldIcon,
+        onClick: () => editor?.chain().focus().toggleBold().run(),
       },
     ],
   ];
