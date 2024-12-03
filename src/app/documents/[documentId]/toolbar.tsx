@@ -1,8 +1,5 @@
 "use client";
 
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
-import { useEditorStore } from "@/store/use-editor-store";
 import {
   BoldIcon,
   ItalicIcon,
@@ -16,6 +13,10 @@ import {
   UnderlineIcon,
   Undo2Icon,
 } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
+import { useEditorStore } from "@/store/use-editor-store";
 
 interface ToolbarButtonProps {
   onClick?: () => void;
