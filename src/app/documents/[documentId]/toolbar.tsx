@@ -17,6 +17,8 @@ import {
   ListTodoIcon,
   LucideIcon,
   MessageSquarePlusIcon,
+  MinusIcon,
+  PlusIcon,
   PrinterIcon,
   Redo2Icon,
   RemoveFormattingIcon,
@@ -96,6 +98,7 @@ const FontSizeButton = () => {
     const newSize = parseInt(fontSize) + 1;
     updateFontSize(newSize.toString());
   };
+
   const decrement = () => {
     const newSize = parseInt(fontSize) - 1;
     if (newSize > 0) {
@@ -103,7 +106,42 @@ const FontSizeButton = () => {
     }
   };
 
-  return <div className=""></div>;
+  return (
+    <div className="flex items-center gap-x-0.5">
+      <button
+        onClick={decrement}
+        className="h-7 w-7 shrink-0  flex items-center justify-center rounded-sm hover:bg-neutral-200/80 "
+      >
+        <MinusIcon className="size-4" />
+      </button>
+      {isEditing ? (
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
+          onKeyDown={handleKeyDown}
+          className="h-7 w-10 text-sm text-center border border-neutral-400 rounded-sm bg-transparent focus:outline-none focus:ring-0"
+        />
+      ) : (
+        <button
+          onClick={() => {
+            setIsEditing(true);
+            setFontSize(currentFontSize);
+          }}
+          className="h-7 w-10 text-sm text-center border border-neutral-400 rounded-sm bg-transparent cursor-text "
+        >
+          {currentFontSize}
+        </button>
+      )}
+      <button
+        onClick={increment}
+        className="h-7 w-7 shrink-0  flex items-center justify-center rounded-sm hover:bg-neutral-200/80 "
+      >
+        <PlusIcon className="size-4" />
+      </button>
+    </div>
+  );
 };
 const ListButton = () => {
   const { editor } = useEditorStore();
