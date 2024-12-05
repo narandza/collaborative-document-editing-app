@@ -1,10 +1,37 @@
+import { useRef, useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
 
 const markers = Array.from({ length: 83 }, (_, i) => i);
 
 export const Ruler = () => {
+  const [leftMargin, setLeftMargin] = useState(56);
+  const [rightMargin, setRightMargin] = useState(56);
+
+  const [isDraggingLeft, setIsDraggingLeft] = useState(false);
+  const [isDraggingRight, setIsDraggingRight] = useState(false);
+
+  const rulerRef = useRef<HTMLDivElement>(null);
+
+  const handleLeftMouseDOwn = () => {
+    setIsDraggingLeft(true);
+  };
+
+  const handleRightMouseDOwn = () => {
+    setIsDraggingRight(true);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if ((isDraggingLeft || isDraggingRight) && rulerRef.current) {
+      const container = rulerRef.current.querySelector("#ruler-container");
+    }
+  };
+
   return (
-    <div className="h-6 border-b border-gray-300 flex items-end relative select-none print:hidden">
+    <div
+      ref={rulerRef}
+      onMouseMove={handleMouseMove}
+      className="h-6 border-b border-gray-300 flex items-end relative select-none print:hidden"
+    >
       <div
         className="max-w-[816px] mx-auto w-full h-full relative"
         id="ruler-container"
