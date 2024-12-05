@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { DocumentInput } from "./document-input";
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarTrigger,
+} from "@/components/ui/menubar";
+import { FileIcon } from "lucide-react";
 
 export const Navbar = () => {
   return (
@@ -11,7 +19,19 @@ export const Navbar = () => {
         </Link>
         <div className="flex flex-col">
           <DocumentInput />
-          {/* Menu bar  */}
+          <div className="flex">
+            <Menubar className="border-none bg-transparent shadow-none h-auto p-0">
+              <MenubarMenu>
+                <MenubarTrigger>File</MenubarTrigger>
+                <MenubarContent>
+                  <MenubarItem>
+                    <FileIcon />
+                    Save
+                  </MenubarItem>
+                </MenubarContent>
+              </MenubarMenu>
+            </Menubar>
+          </div>
         </div>
       </div>
     </nav>
