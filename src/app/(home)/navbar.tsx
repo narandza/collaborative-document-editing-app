@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SearchInput } from "./search-input";
 
 export const Navbar = () => {
   return (
@@ -11,6 +12,8 @@ export const Navbar = () => {
         </Link>
         <h3 className="text-xl">Docs</h3>
       </div>
+      <SearchInput />
+      <div />
     </nav>
   );
 };
