@@ -16,15 +16,21 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import {
+  BoldIcon,
   FileIcon,
   FileJsonIcon,
   FilePenIcon,
   FilePlusIcon,
   FileTextIcon,
   GlobeIcon,
+  ItalicIcon,
   PrinterIcon,
   Redo2Icon,
+  RemoveFormatting,
+  StrikethroughIcon,
+  TextIcon,
   TrashIcon,
+  UnderlineIcon,
   Undo2Icon,
 } from "lucide-react";
 import { BsFilePdf } from "react-icons/bs";
@@ -121,15 +127,39 @@ export const Navbar = () => {
                   </MenubarSub>
                 </MenubarContent>
               </MenubarMenu>
-
               <MenubarMenu>
                 <MenubarTrigger className="text-sm font-normal py-0.5 px-[7px] rounded-sm hover:bg-muted h-auto">
                   Format
                 </MenubarTrigger>
                 <MenubarContent>
+                  <MenubarSub>
+                    <MenubarSubTrigger>
+                      <TextIcon className="size-4 mr-2" />
+                      Text
+                    </MenubarSubTrigger>
+                    <MenubarSubContent>
+                      <MenubarItem>
+                        <BoldIcon className="size-4 mr-2" />
+                        Bold<MenubarShortcut>⌘B</MenubarShortcut>
+                      </MenubarItem>
+                      <MenubarItem>
+                        <ItalicIcon className="size-4 mr-2" />
+                        Italic<MenubarShortcut>⌘I</MenubarShortcut>
+                      </MenubarItem>
+                      <MenubarItem>
+                        <UnderlineIcon className="size-4 mr-2" />
+                        Underline<MenubarShortcut>⌘U</MenubarShortcut>
+                      </MenubarItem>
+                      <MenubarItem>
+                        <StrikethroughIcon className="size-4 mr-2" />
+                        Strikethrough&nbsp;&nbsp;
+                        <MenubarShortcut>⌘S</MenubarShortcut>
+                      </MenubarItem>
+                    </MenubarSubContent>
+                  </MenubarSub>
                   <MenubarItem>
-                    <FileIcon className="size-4 mr-2" />
-                    Save
+                    <RemoveFormatting className="size-4 mr-2" />
+                    Clear formatting
                   </MenubarItem>
                 </MenubarContent>
               </MenubarMenu>
