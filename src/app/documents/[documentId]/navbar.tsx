@@ -182,6 +182,7 @@ export const Navbar = () => {
                   <MenubarSub>
                     <MenubarSubTrigger>Table</MenubarSubTrigger>
                     <MenubarSubContent>
+                      {/* TODO: make dynamic */}
                       <MenubarItem
                         onClick={() => insertTable({ rows: 1, cols: 1 })}
                       >
