@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { ConvexClientProvider } from "@/components/convex-provider";
+import { ConvexClientProvider } from "@/components/convex-client-provider";
 
 const inter = Inter({
   subsets: ["latin"],
