@@ -4,6 +4,7 @@ import { usePaginatedQuery } from "convex/react";
 import { Navbar } from "./navbar";
 import { TemplateGallery } from "./template-gallery";
 import { api } from "../../../convex/_generated/api";
+import { DocumentsTable } from "./documents-table";
 
 const Home = () => {
   const { results, status, loadMore } = usePaginatedQuery(
@@ -19,7 +20,11 @@ const Home = () => {
       </div>
       <div className="mt-16">
         <TemplateGallery />
-        {/* TODO: create documents table */}
+        <DocumentsTable
+          documents={results}
+          loadMore={loadMore}
+          status={status}
+        />
       </div>
     </div>
   );
