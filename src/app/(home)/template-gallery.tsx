@@ -59,7 +59,12 @@ export const TemplateGallery = () => {
                       backgroundPosition: "center",
                       backgroundRepeat: "no-repeat",
                     }}
-                    onClick={() => onTemplateClick(template.label, "")}
+                    onClick={() =>
+                      onTemplateClick(
+                        template.label,
+                        "TODO: add proper initial content"
+                      )
+                    }
                     disabled={isCreating}
                     className="size-full hover:border-blue-500 rounded-sm border hover:bg-blue-50 transition flex flex-col items-center justify-center gap-y-4 bg-white "
                   />
