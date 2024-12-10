@@ -41,10 +41,11 @@ export const RenameDialog = ({
 
     setIsUpdating(true);
 
-    update({ id, title: title.trim() || "Untitled" }).finally(() => {
-      setIsUpdating(false);
-      setOpen(false);
-    });
+    update({ id, title: title.trim() || "Untitled" })
+      .then(() => setOpen(false))
+      .finally(() => {
+        setIsUpdating(false);
+      });
   };
 
   return (
