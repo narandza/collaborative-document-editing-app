@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useSearchParam } from "@/hooks/use-serach-param";
+import { useSearchParam } from "@/hooks/use-search-param";
 import { SearchIcon, XIcon } from "lucide-react";
 import { useRef, useState } from "react";
 
