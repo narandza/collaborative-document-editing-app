@@ -16,6 +16,7 @@ import {
   AlertDialogCancel,
   AlertDialogAction,
 } from "./ui/alert-dialog";
+import { toast } from "sonner";
 
 interface RemoveDialogProps {
   id: Id<"documents">;
@@ -47,7 +48,10 @@ export const RemoveDialog = ({ id, children }: RemoveDialogProps) => {
             onClick={(e) => {
               e.stopPropagation();
               setIsDeleting(true);
-              remove({ id }).finally(() => setIsDeleting(false));
+              remove({ id })
+                .catch(() => toast.error("Something went wrong"))
+                .then(() => toast.success("Document removed"))
+                .finally(() => setIsDeleting(false));
             }}
           >
             Delete

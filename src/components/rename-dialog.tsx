@@ -16,6 +16,7 @@ import {
   DialogTrigger,
   DialogFooter,
 } from "./ui/dialog";
+import { toast } from "sonner";
 
 interface RenameDialogProps {
   id: Id<"documents">;
@@ -42,7 +43,11 @@ export const RenameDialog = ({
     setIsUpdating(true);
 
     update({ id, title: title.trim() || "Untitled" })
-      .then(() => setOpen(false))
+      .catch(() => toast.error("Something went wrong"))
+      .then(() => {
+        toast.success("Document updated");
+        setOpen(false);
+      })
       .finally(() => {
         setIsUpdating(false);
       });
