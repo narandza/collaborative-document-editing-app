@@ -145,18 +145,6 @@ export const updateById = mutation({
 export const getById = query({
   args: { id: v.id("documents") },
   handler: async (ctx, { id }) => {
-    const user = await ctx.auth.getUserIdentity();
-
-    if (!user) {
-      throw new ConvexError("Unauthorized");
-    }
-
-    const document = await ctx.db.get(id);
-
-    if (!document) {
-      throw new ConvexError("Document not found");
-    }
-
-    return document;
+    return await ctx.db.get(id);
   },
 });
