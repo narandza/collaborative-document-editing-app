@@ -1,3 +1,5 @@
+import { DEFAULT_MARGIN } from "@/constants/values";
+import { useMutation, useStorage } from "@liveblocks/react";
 import { useRef, useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
 
@@ -8,8 +10,15 @@ const PAGE_WIDTH = 816;
 const MINIMUM_SPACE = 100;
 
 export const Ruler = () => {
-  const [leftMargin, setLeftMargin] = useState(56);
-  const [rightMargin, setRightMargin] = useState(56);
+  const leftMargin = useStorage((root) => root.leftMargin) ?? DEFAULT_MARGIN;
+  const setLeftMargin = useMutation(({ storage }, position: number) => {
+    storage.set("leftMargin", position);
+  }, []);
+
+  const rightMargin = useStorage((root) => root.rightMargin) ?? DEFAULT_MARGIN;
+  const setRightMargin = useMutation(({ storage }, position: number) => {
+    storage.set("rightMargin", position);
+  }, []);
 
   const [isDraggingLeft, setIsDraggingLeft] = useState(false);
   const [isDraggingRight, setIsDraggingRight] = useState(false);
@@ -63,11 +72,11 @@ export const Ruler = () => {
   };
 
   const handleLeftDoubleClick = () => {
-    setLeftMargin(56);
+    setLeftMargin(DEFAULT_MARGIN);
   };
 
   const handleRightDoubleClick = () => {
-    setRightMargin(56);
+    setRightMargin(DEFAULT_MARGIN);
   };
 
   return (

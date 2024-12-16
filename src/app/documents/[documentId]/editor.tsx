@@ -23,8 +23,12 @@ import { lineHeightExtension } from "@/extensions/line-height";
 import { Ruler } from "./ruler";
 import { useLiveblocksExtension } from "@liveblocks/react-tiptap";
 import { Threads } from "./threads";
+import { useStorage } from "@liveblocks/react";
+import { DEFAULT_MARGIN } from "@/constants/values";
 
 export const Editor = () => {
+  const leftMargin = useStorage((root) => root.leftMargin);
+  const rightMargin = useStorage((root) => root.rightMargin);
   const liveblocks = useLiveblocksExtension();
   const { setEditor } = useEditorStore();
 
@@ -56,7 +60,7 @@ export const Editor = () => {
     },
     editorProps: {
       attributes: {
-        style: "padding-left: 56px; padding-right: 56px;",
+        style: `padding-left: ${leftMargin ?? DEFAULT_MARGIN}px; padding-right: ${rightMargin ?? DEFAULT_MARGIN}px;`,
         class:
           "focus:outline-none print:border-0 bg-white border-[#c7c7c7] border flex flex-col min-h-[1024px] w-[816px] pt-10 pr-14 pb-10 cursor-text",
       },
