@@ -1,9 +1,20 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Separator } from "@/components/ui/separator";
+
+import { ClientSideSuspense } from "@liveblocks/react";
 import { useOthers, useSelf } from "@liveblocks/react/suspense";
 
 const AVATAR_SIZE = 36;
+
+export const Avatars = () => {
+  return (
+    <ClientSideSuspense fallback={null}>
+      <AvatarStack />
+    </ClientSideSuspense>
+  );
+};
 
 const AvatarStack = () => {
   const users = useOthers();
@@ -28,7 +39,7 @@ const AvatarStack = () => {
           })}
         </div>
       </div>
-      <Separator />
+      <Separator orientation="vertical" className="h-6" />
     </>
   );
 };
