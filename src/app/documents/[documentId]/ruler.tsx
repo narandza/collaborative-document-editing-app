@@ -49,7 +49,7 @@ export const Ruler = () => {
 
           const newLeftPosition = Math.min(rawPosition, maxLeftPosition);
 
-          setLeftMargin(newLeftPosition); // TODO: Make collaborative
+          setLeftMargin(newLeftPosition);
         } else if (isDraggingRight) {
           const maxRightPosition = PAGE_WIDTH - (leftMargin + MINIMUM_SPACE);
 
