@@ -29,14 +29,14 @@ export const templates = [
     imageUrl: "/project-proposal.svg",
     initialContent: `
     <h1>Project Proposal</h1>
-<h2>Executive Summary</h2>
-<p>Brief overview of the project proposal.</p>
+    <h2>Executive Summary</h2>
+    <p>Brief overview of the project proposal.</p>
 
-<h2>Project Goals</h2>
-<p>Strategy and methodology for project execution</p>
+    <h2>Project Goals</h2>
+    <p>Strategy and methodology for project execution</p>
 
-<h2>Resources Required</h2>
-<p>Team, equipment, and requirements</p>
+    <h2>Resources Required</h2>
+    <p>Team, equipment, and requirements</p>
 `,
   },
   {
@@ -80,6 +80,33 @@ export const templates = [
     id: "cover-letter",
     label: "Cover letter",
     imageUrl: "/cover-letter.svg",
+    initialContent: `
+    <h1>Company Name</h1>
+    <p>123 Business Road, City, Country</p>
+    <p>Email: info@company.com | Phone: +1 234 567 890</p>
+    
+    <h2>Date</h2>
+    <p>[Insert Date]</p>
+    
+    <h2>Recipient Details</h2>
+    <p><strong>Recipient Name</strong></p>
+    <p>[Recipient Title]</p>
+    <p>[Company Name]</p>
+    <p>[Recipient Address]</p>
+    
+    <h2>Subject</h2>
+    <p>[Subject of the Letter]</p>
+    
+    <h2>Body</h2>
+    <p>Dear [Recipient Name],</p>
+    <p>[Insert your letter content here. Explain the purpose of the letter clearly and provide any necessary details.]</p>
+    <p>Sincerely,</p>
+    
+    <h2>Signature</h2>
+    <p><strong>Your Name</strong></p>
+    <p>[Your Title]</p>
+    <p>[Your Contact Information]</p>
+    `,
   },
   {
     id: "letter",
