@@ -27,6 +27,17 @@ export const templates = [
     id: "project-proposal",
     label: "Project proposal",
     imageUrl: "/project-proposal.svg",
+    initialContent: `
+    <h1>Project Proposal</h1>
+<h2>Executive Summary</h2>
+<p>Brief overview of the project proposal.</p>
+
+<h2>Project Goals</h2>
+<p>Strategy and methodology for project execution</p>
+
+<h2>Resources Required</h2>
+<p>Team, equipment, and requirements</p>
+`,
   },
   {
     id: "business-letter",
