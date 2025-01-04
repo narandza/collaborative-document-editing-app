@@ -9,18 +9,43 @@ export const templates = [
     label: "Software development proposal",
     imageUrl: "/software-proposal.svg",
     initialContent: `
-    <h1>Software Development</h1>
-<h2>Project Overview</h2>
-<p>Brief description of the proposed software development project.</p>
-
-<h2>Scope of Work</h2>
-<p>Detailed breakdown of project deliverables and requirements.</p>
-
-<h2>Timeline</h2>
-<p>Project milestones and delivery schedule</p>
-
-<h2>Budget</h2>
-<p>Cost breakdown and payment terms.</p>
+    <h1>Software Proposal</h1>
+    <p>Submitted by: [Your Company Name]</p>
+    <p>Date: [Insert Date]</p>
+    
+    <h2>Client Information</h2>
+    <p><strong>[Client Name]</strong></p>
+    <p>[Client Title]</p>
+    <p>[Client Company]</p>
+    <p>[Client Address]</p>
+    <p>Email: [Client Email] | Phone: [Client Phone]</p>
+    
+    <h2>Proposal Overview</h2>
+    <p>[Provide a brief overview of the software solution you are proposing, including its purpose and the problem it aims to solve.]</p>
+    
+    <h2>Objectives</h2>
+    <p>[List the main objectives of the software solution, such as improving efficiency, reducing costs, or enhancing user experience.]</p>
+    
+    <h2>Proposed Solution</h2>
+    <p>[Describe the software solution in detail, including its features, functionalities, and technologies to be used.]</p>
+    
+    <h2>Implementation Plan</h2>
+    <p>[Outline the steps involved in implementing the software, including timelines, key milestones, and resources required.]</p>
+    
+    <h2>Cost Estimate</h2>
+    <p>[Provide an estimate of the costs associated with the development, deployment, and maintenance of the software.]</p>
+    
+    <h2>Benefits</h2>
+    <p>[Highlight the key benefits the client will gain by adopting your software solution.]</p>
+    
+    <h2>Conclusion</h2>
+    <p>[Summarize the proposal and express your interest in working with the client on this project.]</p>
+    
+    <h2>Contact Information</h2>
+    <p><strong>[Your Name]</strong></p>
+    <p>[Your Title]</p>
+    <p>[Your Company Name]</p>
+    <p>Email: [Your Email] | Phone: [Your Phone]</p>
     `,
   },
   {
