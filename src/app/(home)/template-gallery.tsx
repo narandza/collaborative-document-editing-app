@@ -65,7 +65,7 @@ export const TemplateGallery = () => {
                     onClick={() =>
                       onTemplateClick(
                         template.label,
-                        "TODO: add proper initial content"
+                        template.initialContent ? template.initialContent : ""
                       )
                     }
                     disabled={isCreating}

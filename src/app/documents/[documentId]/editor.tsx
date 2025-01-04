@@ -26,10 +26,14 @@ import { Threads } from "./threads";
 import { useStorage } from "@liveblocks/react";
 import { DEFAULT_MARGIN } from "@/constants/values";
 
-export const Editor = () => {
+interface EditorProps {
+  initialContent: string | undefined;
+}
+
+export const Editor = ({ initialContent }: EditorProps) => {
   const leftMargin = useStorage((root) => root.leftMargin);
   const rightMargin = useStorage((root) => root.rightMargin);
-  const liveblocks = useLiveblocksExtension();
+  const liveblocks = useLiveblocksExtension({ initialContent });
   const { setEditor } = useEditorStore();
 
   const editor = useEditor({
@@ -67,6 +71,7 @@ export const Editor = () => {
     },
     extensions: [
       liveblocks,
+
       StarterKit.configure({
         history: false,
       }),
