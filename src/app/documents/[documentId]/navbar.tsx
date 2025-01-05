@@ -45,6 +45,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { RemoveDialog } from "@/components/remove-dialog";
 import { RenameDialog } from "@/components/rename-dialog";
+import { DEFAULT_LOGO_SIZE } from "@/constants/values";
 
 interface NavbarProps {
   data: Doc<"documents">;
@@ -128,7 +129,12 @@ export const Navbar = ({ data }: NavbarProps) => {
     <nav className="flex items-center justify-between">
       <div className="flex gap-2 items-center">
         <Link href="/">
-          <Image src="/logo.svg" alt="logo" width={36} height={36} />
+          <Image
+            src="/logo.svg"
+            alt="logo"
+            width={DEFAULT_LOGO_SIZE}
+            height={DEFAULT_LOGO_SIZE}
+          />
         </Link>
         <div className="flex flex-col">
           <DocumentInput title={data.title} id={data._id} />
