@@ -24,7 +24,7 @@ import { Ruler } from "./ruler";
 import { useLiveblocksExtension } from "@liveblocks/react-tiptap";
 import { Threads } from "./threads";
 import { useStorage } from "@liveblocks/react";
-import { DEFAULT_MARGIN } from "@/constants/values";
+import { DEFAULT_MARGIN, DEFAULT_PAGE_WIDTH } from "@/constants/values";
 
 interface EditorProps {
   initialContent: string | undefined;
@@ -68,8 +68,7 @@ export const Editor = ({ initialContent }: EditorProps) => {
     editorProps: {
       attributes: {
         style: `padding-left: ${leftMargin ?? DEFAULT_MARGIN}px; padding-right: ${rightMargin ?? DEFAULT_MARGIN}px;`,
-        class:
-          "focus:outline-none print:border-0 bg-white border-[#c7c7c7] border flex flex-col min-h-[1024px] w-[816px] pt-10 pr-14 pb-10 cursor-text",
+        class: `focus:outline-none print:border-0 bg-white border-[#c7c7c7] border flex flex-col min-h-[1024px] w-[${DEFAULT_PAGE_WIDTH}px] pt-10 pr-14 pb-10 cursor-text`,
       },
     },
     extensions: [
@@ -109,7 +108,9 @@ export const Editor = ({ initialContent }: EditorProps) => {
   return (
     <div className="size-full overflow-x-auto bg-[#f9fbfd] px-4 print:p-0 print:bg-white print:overflow-visible">
       <Ruler />
-      <div className="min-w-max flex justify-center w-[816px] py-4 print:py-0 mx-auto print:w-full print:min-w-0">
+      <div
+        className={`min-w-max flex justify-center w-[${DEFAULT_PAGE_WIDTH}px] py-4 print:py-0 mx-auto print:w-full print:min-w-0`}
+      >
         <EditorContent editor={editor} />
         <Threads editor={editor} />
       </div>

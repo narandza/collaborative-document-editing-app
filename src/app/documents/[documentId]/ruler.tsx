@@ -1,11 +1,9 @@
-import { DEFAULT_MARGIN } from "@/constants/values";
+import { DEFAULT_MARGIN, DEFAULT_PAGE_WIDTH } from "@/constants/values";
 import { useMutation, useStorage } from "@liveblocks/react";
 import { useRef, useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
 
 const markers = Array.from({ length: 83 }, (_, i) => i);
-
-const PAGE_WIDTH = 816;
 
 const MINIMUM_SPACE = 100;
 
@@ -42,18 +40,26 @@ export const Ruler = () => {
 
         const relativeX = e.clientX - containerRect.left;
 
-        const rawPosition = Math.max(0, Math.min(PAGE_WIDTH, relativeX));
+        const rawPosition = Math.max(
+          0,
+          Math.min(DEFAULT_PAGE_WIDTH, relativeX)
+        );
 
         if (isDraggingLeft) {
-          const maxLeftPosition = PAGE_WIDTH - rightMargin - MINIMUM_SPACE;
+          const maxLeftPosition =
+            DEFAULT_PAGE_WIDTH - rightMargin - MINIMUM_SPACE;
 
           const newLeftPosition = Math.min(rawPosition, maxLeftPosition);
 
           setLeftMargin(newLeftPosition);
         } else if (isDraggingRight) {
-          const maxRightPosition = PAGE_WIDTH - (leftMargin + MINIMUM_SPACE);
+          const maxRightPosition =
+            DEFAULT_PAGE_WIDTH - (leftMargin + MINIMUM_SPACE);
 
-          const newRightPosition = Math.max(PAGE_WIDTH - rawPosition, 0);
+          const newRightPosition = Math.max(
+            DEFAULT_PAGE_WIDTH - rawPosition,
+            0
+          );
 
           const constrainedRightPosition = Math.min(
             newRightPosition,
@@ -105,7 +111,7 @@ export const Ruler = () => {
         <div className="absolute inset-x-0 bottom-0 h-full">
           <div className="relative h-full w-[816px]">
             {markers.map((marker) => {
-              const position = (marker * PAGE_WIDTH) / 82;
+              const position = (marker * DEFAULT_PAGE_WIDTH) / 82;
 
               return (
                 <div
