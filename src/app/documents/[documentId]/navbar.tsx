@@ -47,6 +47,13 @@ import { RemoveDialog } from "@/components/remove-dialog";
 import { RenameDialog } from "@/components/rename-dialog";
 import { DEFAULT_LOGO_SIZE } from "@/constants/values";
 
+const TABLE_SIZES = [
+  { rows: 1, cols: 1 },
+  { rows: 2, cols: 2 },
+  { rows: 3, cols: 3 },
+  { rows: 4, cols: 4 },
+];
+
 interface NavbarProps {
   data: Doc<"documents">;
 }
@@ -229,27 +236,16 @@ export const Navbar = ({ data }: NavbarProps) => {
                   <MenubarSub>
                     <MenubarSubTrigger>Table</MenubarSubTrigger>
                     <MenubarSubContent>
-                      {/* TODO: make dynamic */}
-                      <MenubarItem
-                        onClick={() => insertTable({ rows: 1, cols: 1 })}
-                      >
-                        1 x 1
-                      </MenubarItem>
-                      <MenubarItem
-                        onClick={() => insertTable({ rows: 2, cols: 2 })}
-                      >
-                        2 x 2
-                      </MenubarItem>
-                      <MenubarItem
-                        onClick={() => insertTable({ rows: 3, cols: 3 })}
-                      >
-                        3 x 3
-                      </MenubarItem>
-                      <MenubarItem
-                        onClick={() => insertTable({ rows: 4, cols: 4 })}
-                      >
-                        4 x 4
-                      </MenubarItem>
+                      {TABLE_SIZES.map((size, index) => (
+                        <MenubarItem
+                          key={index}
+                          onClick={() =>
+                            insertTable({ rows: size.rows, cols: size.cols })
+                          }
+                        >
+                          {`${size.rows} x ${size.cols}`}
+                        </MenubarItem>
+                      ))}
                     </MenubarSubContent>
                   </MenubarSub>
                 </MenubarContent>
