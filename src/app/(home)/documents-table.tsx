@@ -52,9 +52,12 @@ export const DocumentsTable = ({
             </TableBody>
           ) : (
             <TableBody>
-              {documents.map((document) => (
-                <DocumentRow key={document._id} document={document} />
-              ))}
+              {documents
+                .slice()
+                .reverse()
+                .map((document) => (
+                  <DocumentRow key={document._id} document={document} />
+                ))}
             </TableBody>
           )}
         </Table>
