@@ -40,7 +40,6 @@ export async function POST(req: Request) {
 
   const name =
     user.fullName ?? user.primaryEmailAddress?.emailAddress ?? "Anonymous";
-
   const nameToNumber = name
     .split("")
     .reduce((acc, char) => acc + char.charCodeAt(0), 0);
